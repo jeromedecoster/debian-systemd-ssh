@@ -48,23 +48,11 @@ wget github.com/jeromedecoster/debian-systemd-ssh/raw/master/install.sh \
     | bash
 ```
 
-### install with npm
-
-```bash
-npm install --global jeromedecoster/debian-systemd-ssh
-```
-
-### uninstall from curl or wget
+### uninstall
 
 ```bash
 sudo rm --force --recursive /usr/local/lib/debian-systemd-ssh \
     && sudo rm --force --recursive /usr/local/bin/dss
-```
-
-### uninstall from npm
-
-```bash
-rm --force --recursive $(npm root --global)/debian-systemd-ssh
 ```
 
 ### inspiration
