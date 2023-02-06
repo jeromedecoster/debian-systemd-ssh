@@ -54,7 +54,7 @@ for i in $(seq $FIRST $LAST);do
     # or `ssh-keygen -f "/home/${USER}/.ssh/known_hosts" -R "[${IP}]:${PORT}"`
     # this command add a new line in `~/.ssh/known_hosts`
     # old content is backup in `~/.ssh/known_hosts.old`
-    ssh-keygen -f "/home/${USER}/.ssh/known_hosts" -R "${IP}" 2>/dev/null
+    ssh-keygen -f "/home/${USER}/.ssh/known_hosts" -R "${IP}" 1>/dev/null 2>/dev/null
     # ⚠ important : after `.ssh/known_hosts` update by ssh-keygen it is HIGHLY recommended 
     # to `sleep 1` second before `ssh-keyscan` to prevent exit code
     # also, do NOT OPEN `.ssh/known_hosts` in an text editor : this can block writing to the file using >>

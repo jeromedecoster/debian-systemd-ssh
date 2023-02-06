@@ -19,7 +19,7 @@ ENV LANGUAGE $LANG
 #
 # https://stackoverflow.com/a/61990740
 # single RUN command with cache clean
-RUN apt update -qq \
+RUN apt update -qq 1>/dev/null 2>/dev/null \
     && DEBIAN_FRONTEND=noninteractive apt install -qq --yes --no-install-recommends \
         ca-certificates \
         curl \
@@ -35,8 +35,8 @@ RUN apt update -qq \
     && rm --recursive --force /var/lib/apt/lists/*
 
 # resolve `locale: Cannot set LC_ALL | LC_CTYPE | LC_MESSAGES to default locale: No such file or directory`
-RUN sed -i "s/^# en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/g" /etc/locale.gen \ 
-    && sed -i "s/^# $LANG UTF-8$/$LANG UTF-8/g" /etc/locale.gen \ 
+RUN sed --in-place "s/^# en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/g" /etc/locale.gen \ 
+    && sed --in-place "s/^# $LANG UTF-8$/$LANG UTF-8/g" /etc/locale.gen \ 
     && locale-gen \
     && update-locale LANG=$LANG LC_ALL=$LANG
 

@@ -52,7 +52,8 @@ wget github.com/jeromedecoster/debian-systemd-ssh/raw/master/install.sh \
 
 ```bash
 sudo rm --force --recursive /usr/local/lib/debian-systemd-ssh \
-    && sudo rm --force --recursive /usr/local/bin/dss
+    && sudo rm --force --recursive /usr/local/bin/dss \
+    && rm --force ~/.ssh/id_debian_systemd_ssh*
 ```
 
 ### inspiration
